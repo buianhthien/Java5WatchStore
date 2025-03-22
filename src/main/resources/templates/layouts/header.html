@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <style>
+      .dropdown-menu {
+        z-index: 1050; /* Đảm bảo dropdown không bị che khuất */
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="container-fluid bg-warning py-2">
+      <div
+        class="container-fluid px-4 d-flex justify-content-between align-items-center"
+      >
+        <div class="small">
+          <i class="fa-solid fa-clock"></i> 8:00-22:00 |
+          <i class="fa-solid fa-phone"></i> 0123456789 - 0347016870
+        </div>
+        <div>
+          <a class="text-dark px-2" href="#"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a class="text-dark px-2" href="#"
+            ><i class="fa-solid fa-phone"></i
+          ></a>
+          <a class="text-dark px-2" href="#"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </header>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid px-5">
+        <!-- Logo -->
+        <a href="/home" class="navbar-brand" style="background-color: white">
+          <img
+            src="/images/logo.png"
+            alt="ĐANA WATCH"
+            width="160"
+            height="40"
+          />
+        </a>
+
+        <!-- Nút thu gọn menu trên mobile -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu chính -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="/home">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/product">Sản phẩm</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Tin tức</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Liên hệ</a></li>
+          </ul>
+
+          <!-- Thanh tìm kiếm -->
+          <form action="product/search" method="get" class="d-flex me-3">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Tìm kiếm..."
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-light" type="submit">Tìm</button>
+          </form>
+
+          <!-- Giỏ hàng + Tài khoản -->
+          <a class="btn btn-warning text-dark me-2" href="/cart">
+            <i class="fa-solid fa-cart-shopping"></i> Giỏ hàng
+          </a>
+
+          <!-- Dropdown Tài khoản -->
+          <div class="dropdown">
+            <button
+              class="btn btn-outline-light dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-user"></i>
+            </button>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="dropdownMenuButton"
+            >
+              <li><a class="dropdown-item" href="/auth/login">Đăng nhập</a></li>
+              <li><a class="dropdown-item" href="/signup">Đăng ký</a></li>
+              <li>
+                <a class="dropdown-item" href="/editProfile"
+                  >Cập nhật thông tin</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="/changPassword">Đổi mật khẩu</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/forgotPassword"
+                  >Quên mật khẩu</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="/auth/logout">Đăng xuát</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>

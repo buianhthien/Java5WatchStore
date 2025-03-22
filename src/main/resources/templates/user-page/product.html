@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Product Page</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <style>
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+      }
+      select:focus {
+        outline: none;
+      }
+      .product-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%; /* Đảm bảo các card có cùng chiều cao */
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .product-card img {
+        width: 100%;
+        height: 150px; /* Định chiều cao ảnh */
+        object-fit: cover; /* Đảm bảo ảnh không bị méo */
+      }
+
+      .card-body {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px;
+      }
+
+      .card-title {
+        font-size: 14px;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+      }
+
+      .text-danger {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .btn-sm {
+        margin-top: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid py-4" style="width: 95%; margin: 0 auto">
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-3">
+          <h5 class="fw-bold">Lọc sản phẩm</h5>
+          <select class="form-select">
+            <option>Mẫu bán chạy</option>
+            <option>Hàng mới về</option>
+            <option>Giá thấp → cao</option>
+            <option>Giá cao → thấp</option>
+            <option>Lượt mua nhiều nhất</option>
+          </select>
+
+          <h5 class="fw-bold mt-3">Thương hiệu</h5>
+          <ul class="list-group">
+            <li class="list-group-item"><a href="#">ORIEN</a></li>
+            <li class="list-group-item"><a href="#">CASIO</a></li>
+            <li class="list-group-item"><a href="#">CITIZEN</a></li>
+            <li class="list-group-item"><a href="#">BENTLEY</a></li>
+          </ul>
+
+          <h5 class="fw-bold mt-3">Phân khúc giá</h5>
+          <ul class="list-group">
+            <li class="list-group-item"><a href="#">1M → 3M</a></li>
+            <li class="list-group-item"><a href="#">3M → 5M</a></li>
+            <li class="list-group-item"><a href="#">5M → 10M</a></li>
+          </ul>
+
+          <!-- Related Products -->
+          <h5 class="fw-bold mt-3">Sản phẩm nổi bật</h5>
+
+          <div class="card mb-3" style="max-width: 540px">
+            <div class="row g-0">
+              <div class="col-4">
+                <img src="..." class="img-fluid rounded-start" alt="..." />
+              </div>
+              <div class="col-8">
+                <div class="card-body" style="padding: 2px">
+                  <h6 class="card-title mb-0">Card title</h6>
+                  <p class="card-text fw-bold text-danger">giá: 1,000,000 đ</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-9">
+          <h5 class="fw-bold">Danh sách sản phẩm</h5>
+          <!-- Phần hiển thị sản phẩm -->
+          <div class="row">
+            <div class="col-3 mb-3" th:each="product : ${products}">
+              <div class="card product-card">
+                <img
+                  th:src="@{'/images/' + ${product.image}}"
+                  class="card-img-top"
+                  alt="Product"
+                />
+                <div class="card-body text-center">
+                  <h6 th:text="${product.productName}" class="card-title"></h6>
+                  <p
+                    th:text="${#numbers.formatDecimal(product.price, 0, 'COMMA', 0, 'POINT')} + ' đ'"
+                    class="text-danger fw-bold"
+                  ></p>
+                  <a
+                    th:href="@{/detail(id=${product.productId})}"
+                    class="btn btn-primary btn-sm"
+                    >Mua ngay</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phân trang -->
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center mt-4">
+              <li class="page-item" th:if="${currentPage > 0}">
+                <a
+                  class="page-link"
+                  th:href="@{/product(page=${currentPage - 1})}"
+                  >Trước</a
+                >
+              </li>
+              <li
+                class="page-item"
+                th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
+                th:classappend="${i == currentPage} ? 'active' : ''"
+              >
+                <a
+                  class="page-link"
+                  th:href="@{/product(page=${i})}"
+                  th:text="${i + 1}"
+                ></a>
+              </li>
+              <li class="page-item" th:if="${currentPage + 1 < totalPages}">
+                <a
+                  class="page-link"
+                  th:href="@{/product(page=${currentPage + 1})}"
+                  >Tiếp</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

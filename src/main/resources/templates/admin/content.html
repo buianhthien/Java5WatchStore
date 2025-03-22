@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <title>Quản lý hệ thống</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <style>
+      /* Sidebar cố định */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 220px;
+        background-color: #212529;
+        padding-top: 15px;
+        overflow-y: auto;
+      }
+
+      .sidebar .nav-link {
+        color: white;
+        font-size: 14px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .sidebar .nav-link i {
+        margin-right: 100px;
+      }
+
+      .sidebar .nav-link:hover {
+        background-color: #343a40;
+        border-radius: 5px;
+      }
+
+      /* Nội dung chính */
+      .main-content {
+        margin-left: 220px; /* Phù hợp với kích thước sidebar */
+        padding: 20px;
+        min-height: 100vh;
+      }
+
+      @media (max-width: 768px) {
+        .sidebar {
+          width: 180px;
+        }
+        .main-content {
+          margin-left: 180px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="text-center text-white">
+        <h6>Hello, Admin!</h6>
+      </div>
+      <hr class="text-white" />
+      <nav class="nav flex-column">
+        <a class="nav-link fs-6" href="/home"
+          ><i class="fas fa-home"></i> &nbsp; Trang chủ</a
+        >
+        <a class="nav-link fs-6" href="/admin/account/index"
+          ><i class="fas fa-user"></i> &nbsp; Người dùng</a
+        >
+        <a class="nav-link fs-6" href="/admin/category/index"
+          ><i class="fas fa-list"></i> &nbsp; Danh mục sản phẩm</a
+        >
+        <a class="nav-link fs-6" href="/admin/product/index"
+          ><i class="fas fa-box"></i> &nbsp; Sản phẩm</a
+        >
+        <a class="nav-link fs-6" href="/admin/order/index"
+          ><i class="fas fa-shopping-cart"></i> &nbsp; Đơn hàng</a
+        >
+      </nav>
+    </nav>
+
+    <!-- Nội dung chính -->
+    <div class="main-content">
+      <article>
+        <main th:replace="~{${view}}"></main>
+      </article>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

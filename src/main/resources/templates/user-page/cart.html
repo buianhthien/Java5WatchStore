@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- FontAwesome 6.2.0 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- (Optional) Use CSS or JS implementation -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js"
+      integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <style>
+      h3 {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      p {
+        font-size: 12px;
+      }
+      span {
+        width: 60px;
+        font-size: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <!-- place navbar here -->
+    </header>
+    <main>
+      <div class="container-fluid" style="width: 95%; margin: 0 auto">
+        <div class="row">
+          <h3 class="mb-3">Giỏ Hàng</h3>
+          <div class="col-8">
+            <!-- Bảng giỏ hàng -->
+            <table
+              class="table table-bordered text-center align-middle"
+              style="font-size: 12px"
+            >
+              <thead class="table-dark">
+                <tr>
+                  <th>&nbsp;</th>
+                  <th>Sản phẩm</th>
+                  <th>Đơn Giá</th>
+                  <th>Số lượng</th>
+                  <th>Thành tiền</th>
+                  <th>Xóa</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <img
+                      src="https://via.placeholder.com/80"
+                      class="img-thumbnail"
+                    />
+                  </td>
+                  <td>Macbook Air 13 M2 2024</td>
+                  <td class="fw-bold">23.890.000 đ</td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control ms-3 w-50 text-center p-0"
+                      value="1"
+                    />
+                  </td>
+                  <td class="fw-bold">23.890.000 đ</td>
+                  <td>
+                    <button class="btn btn-sm btn-danger">
+                      <i class="fa-solid fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="d-flex justify-content-between">
+              <a
+                class="btn btn-sm btn-outline-warning text-warning fw-bold"
+                href=""
+                >Tiếp tục xem sản phẩm</a
+              >
+              <button class="btn btn-sm btn-info btn-warning fw-bold">
+                Cập nhật giỏ hàng
+              </button>
+            </div>
+          </div>
+
+          <!-- Tổng tiền và nút thanh toán -->
+          <div class="col-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Thông tin đơn hàng</h5>
+                <p class="d-flex justify-content-between mb-2">
+                  <span>Tổng tiền:</span>
+                  <strong>49.480.000 đ</strong>
+                </p>
+                <p class="d-flex justify-content-between mb-2">
+                  <span style="width: 70px">Địa chỉ:</span>
+                  <strong
+                    >127/12 đòng kè hòa khánh bắc liên chiểu dà nẵng
+                  </strong>
+                </p>
+                <p class="d-flex justify-content-between text-success mb-2">
+                  <span>Khuyến mãi:</span>
+                  <strong>-1.400.000 đ</strong>
+                </p>
+                <hr />
+                <p
+                  class="d-flex justify-content-between text-danger fw-bold mb-2"
+                >
+                  <span>Thành tiền:</span>
+                  <strong>48.080.000 đ</strong>
+                </p>
+                <button class="btn btn-sm btn-danger w-100 mt-2">
+                  Xác nhận đơn hàng
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
